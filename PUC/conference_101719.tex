@@ -1,0 +1,552 @@
+%\documentclass[conference]{IEEEtran}
+\documentclass[12pt, onecolumn]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+%\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{cite}
+% \usepackage[backend=biber, style=numeric, citestyle=authoryear]{biblatex}
+%\addbibresource{references.bib} % Substitua 'seuarquivo.bib' pelo nome do seu arquivo BibTeX
+
+
+\usepackage[brazil]{babel}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Análise e modelagem de jogos digitais: relato de uma experiência educacional utilizando metodologias ativas em um grupo multidisciplinar}
+
+%% Comandos custumizados para facilitar edição
+\newcommand{\pucsp}{Pontifícia Universidade Católica de São Paulo (PUC-SP)}
+\newcommand{\dolemes}{David de Oliveira Lemes}
+\newcommand{\ezequiel}{Ezequiel França dos Santos}
+\newcommand{\adriano}{Adriano Felix Valente}
+\newcommand{\celso}{Celso Fujimoto}
+\newcommand{\eduardo}{Eduardo Romanek}
+
+\newcommand{\curso}{Mestrado Profissional em Desenvolvimento de Jogos Digitais}
+\newcommand{\universidade}{Pontifícia Universidade Católica de São Paulo}
+\newcommand{\anonimo}{}
+\newcommand{\emailanonimo}{.}
+
+%%%%%%%%%%
+
+\makeatletter
+\newcommand{\linebreakand}{%
+  \end{@IEEEauthorhalign}
+  \hfill\mbox{}\par
+  \mbox{}\hfill\begin{@IEEEauthorhalign}
+}
+\makeatother
+
+% \author{
+%     \raggedleft
+%     \IEEEauthorblockN{\\ Autor 1 (omitido para revisão)}
+%     \IEEEauthorblockA{\\ Email (omitido para revisão) \\
+%     Instituição (omitida para revisão)}
+%     \and
+%     \IEEEauthorblockN{\\ Autor 2 (omitido para revisão)}
+%     \IEEEauthorblockA{\\ Email (omitido para revisão) \\
+%     Instituição (omitida para revisão)}
+%     \and
+%     \IEEEauthorblockN{\\ Autor 3 (omitido para revisão)}
+%     \IEEEauthorblockA{\\ Email (omitido para revisão) \\
+%     Instituição (omitida para revisão)}
+%     \and
+%     \IEEEauthorblockN{\\ Autor 4 (omitido para revisão)}
+%     \IEEEauthorblockA{\\ Email (omitido para revisão) \\
+%     Instituição (omitida para revisão)}
+%     \and
+%     \IEEEauthorblockN{\\ Autor 5 (omitido para revisão)}
+%     \IEEEauthorblockA{\\ Email (omitido para revisão) \\
+%     Instituição (omitida para revisão)}
+% }
+
+% new
+\author{
+    \IEEEauthorblockN{David de Oliveira Lemes \\
+    dolemes@pucsp.br} \\
+    \and
+    \IEEEauthorblockN{Ezequiel França dos Santos \\
+    ezefranca@usp.br} \\
+    \and
+    \IEEEauthorblockN{Eduardo Romanek \\
+    edu.romanek@gmail.com} \\
+    \and
+    \IEEEauthorblockN{Celso Fujimoto \\
+    celso.fujimoto@gmail.com} \\
+    \and
+    \IEEEauthorblockN{Adriano Felix Valente \\
+    drgvalente@gmail.com} \\
+
+        \textit{Pontifícia Universidade Católica de São Paulo (PUC-SP)} \\
+}
+
+% old
+% \author{
+%   \IEEEauthorblockN{1\textsuperscript{st} \dolemes}
+%   \IEEEauthorblockA{\textit{PUC-SP} \\
+%     \textit{}
+%     dolemes@pucsp.br}
+%   \and
+%   \IEEEauthorblockN{2\textsuperscript{nd} \ezequiel}
+%   \IEEEauthorblockA{\textit{PUC-SP} \\
+%     \textit{}
+%     ezefranca@usp.br}
+%   \and
+%   \IEEEauthorblockN{3\textsuperscript{rd} \eduardo}
+%   \IEEEauthorblockA{\textit{PUC-SP} \\
+%     \textit{}
+%     edu.romanek@gmail.com}
+%   \linebreakand % <------------- \and with a line-break
+%   \IEEEauthorblockN{4\textsuperscript{th} \celso}
+%   \IEEEauthorblockA{\textit{PUC-SP} \\
+%     \textit{}
+%     celso.fujimoto@gmail.com}
+%   \and
+%   \IEEEauthorblockN{5\textsuperscript{th} 
+%   \adriano}
+%   \IEEEauthorblockA{\textit{PUC-SP} \\
+%     \textit{}
+%     drgvalente@gmail.com}
+% }
+
+% \author{
+%   \IEEEauthorblockN{1\textsuperscript{st} \dolemes}
+%   \IEEEauthorblockA{\textit{\universidade} \\
+%     \textit{\curso}\\
+%   }
+%   \and
+%   \IEEEauthorblockN{2\textsuperscript{nd} \ezequiel}
+%   \IEEEauthorblockA{\textit{\universidade} \\
+%     \textit{\curso}\\
+%   }
+%   \and
+%   \IEEEauthorblockN{3\textsuperscript{rd} \eduardo}
+%   \IEEEauthorblockA{\textit{\universidade} \\
+%     \textit{\curso}\\
+%   }
+%   \linebreakand % <------------- \and with a line-break
+%   \IEEEauthorblockN{4\textsuperscript{th} \celso}
+%   \IEEEauthorblockA{\textit{\universidade} \\
+%     \textit{\curso}\\
+%  }
+%   \and
+%   \IEEEauthorblockN{5\textsuperscript{th} \adriano}
+%   \IEEEauthorblockA{\textit{\universidade} \\
+%     \textit{\curso}\\
+%   }
+% }
+
+
+\maketitle
+
+\begin{abstract}
+O ensino tradicional de engenharia de software, em geral, possui uma colaboração estrita e com o foco em competências técnicas. Estratégias de ensino ativas, em que o estudante vivencie os conteúdos apresentados, tirando-os  da  condição  de  meros  observadores para manipuladores de instrumentos da realidade, têm se mostrado eficazes em engenharia de software. O mercado de trabalho atual exige novas competências dentro do contexto da transformação digital, em uma realidade com novos desafios, que vão desde modelar cenários de negócios, o que agrega complexidade ao software e à sua construção, a lidar com a interconexão entre pessoas, sistemas e tecnologias. A transição do ensino de engenharia de software tradicional para metodologias ativas, como a estratégia PBL (\textit{Problem Based Learning} mostrou-se capaz de trazer essa realidade do mercado de trabalho com enfrentamento de desafios e decepções para sala de aula. Neste artigo relata-se a experiência na disciplina de omitida para revisão, no curso omitida para revisão da Universidade omitida para revisão
+Apresentam-se os conceitos abordados, o estudo de caso, método de trabalho com papéis e passos dos encontros. Além disso, alguns exemplos dos resultados obtidos (diagramas de requisitos, diagrama de contexto, diagrama de casos de uso, diagrama de classes, entrevistas, outros) que compuseram o GDD (\textit{Game Design Document}, construído por cada grupo através dos encontros, os protótipos de jogos de cada grupo e a discussão acerca das competências desenvolvidas.
+
+%Análise e Modelagem de Jogos Digitai, no curso \curso, da \pucsp. 
+\end{abstract}
+
+\noindent Palavras-chave: engenharia de software, desenvolvimento de jogos digitais, problem based learning
+
+
+\section{Introdução}
+A disciplina de análise e modelagem de jogos digitais no curso de mestrado profissional em desenvolvimento de jogos digitias, da \pucsp, está voltada para: requisitos de software, mutabilidade de requisitos, modelagem por casos de uso, modelagem de domínio, diagrama de robustez, diagrama de sequência, diagrama de comunicação, diagrama de classe, processo de desenvolvimento, técnicas de entrevista, técnicas de levantamento de dados e prototipação de baixa fidelidade. 
+
+Sistemas de software são reconhecidamente importantes ativos estratégicos para diversas organizações. Uma vez que tais sistemas, em especial os sistemas de informação, têm um papel vital no apoio aos processos de negócio das organizações é fundamental que funcionem de acordo com os requisitos estabelecidos. Neste contexto, uma importante tarefa no desenvolvimento de software é a identificação e o entendimento dos requisitos dos negócios que os sistemas apoiarão\cite{b1}.
+
+Jogos digitais são softwares que possuem interfaces de interação com o jogador, mas possuem características distintas de sistemas de softwares comerciais convencionais. A principal diferença é que os jogos são feitos com a finalidade de desafiar o jogador\cite{b2}, gerando diferentes requisitos (narrativa, mecânica, dinâmicas, entre outros). Dessa forma, há a necessidade de adaptar-se as metodologias de desenvolvimento de software para atender a estes novos requisitos, isso demanda diferentes competências e habilidades.
+
+O profissional de desenvolvimento de jogos e engenharia de software no mercado de trabalho atual necessita de novas competências dentro do contexto da transformação digital\cite{b3}, competências chamadas de \textit{soft skills}, tais como trabalhar em equipe, comunicação, proatividade, criatividade, entre outras\cite{b4}. Neste novo mercado este profissional enfrenta novos desafios, que vão desde modelar cenários de negócios, o que agrega maior complexidade ao software e à sua construção, a lidar com a interconexão entre pessoas, processos, sistemas e tecnologias\cite{b5}.
+
+No entanto, disciplinas de engenharia de software por muitas vezes não trabalham adequadamente as \textit{soft skills}, o ensino tradicional dessas disciplinas, em geral, possuem interação e colocaboração estrita, com o foco em habilidades técnicas. Ainda neste contexto, estratégias de ensino ativas, como a PBL (\textit{Problem Based Learning} têm se mostrado uma boa opção no ensino de engenharia de software, pois propiciam ao estudante a oportunidade de vivenciar os conteúdos apresentados, tirando-os  da  condição  de  meros  observadores para manipuladores de instrumentos da realidade\cite{b7}.
+
+A PBL é uma estratégia educacional centrada no estudante, que o auxilia no desenvolvimento do raciocínio e comunicação, habilidades essenciais para o sucesso em sua vida profissional. Nesta metodologia, o estudante é constantemente estimulado a aprender e a fazer parte do processo da construção do aprendizado.\cite{b8}\cite{b9}\cite{b10}
+
+Este relato de caso detalha a implementação de metodologias ativas no ensino de engenharia de software, com especial ênfase na análise e modelagem de jogos digitais. As metodologias abordadas, incluindo Aprendizagem Baseada em Problemas (PBL) e estratégias colaborativas, foram adotadas para proporcionar um ambiente educacional mais dinâmico e interativo. O objetivo deste relato é refletir sobre como essas metodologias podem enriquecer o ensino de engenharia de software, alinhando a educação às exigências práticas da indústria de jogos digitais e melhorando as competências dos alunos.
+
+\section{Contexto da Experiência da Disciplina e Conceituações}
+
+O corpo discente desta disciplina do mestrado, como veremos com mais detalhes nas próximas seções, era um grupo heterogêneo, com estudantes oriundos de graduações em tecnologia da informação, estudantes com formação em linhas de design e estudantes com uma formação específica em jogos digitais.
+
+Isso ajudou a evidenciar as diferenças e similaridades entre uma empresa de software tradicional e uma empresa de jogos. Para tornar estes aspectos mais explícitos, os encontros foram feitos com base em estudos de caso, criando a oportunidade de vivenciar as dificuldades sociais do desenvolvimento, como a comunicação, sem deixar de trabalhar com os aspectos técnicos de modelagem.
+
+Para abranger as diferenças entre um software tradicional e um jogo digital, durante o processo de modelagem foi utilizado o modelo MDA (de Mecânica, Dinâmica e Estética [\textit{Mechanics, Dynamics and Aesthetics}]). 
+
+Cada estudo de caso continha falhas, para que os estudantes questionassem e construíssem uma visão crítica sobre as técnicas de engenharia de {software}, não existindo uma única solução e lembrando sempre que não existe uma "bala de prata"\cite{b11}.
+
+\subsection{O estudo de caso}
+
+Uma empresa fictícia de desenvolvimento de jogos digitais e desenvolvimento de conteúdos digitais interativos
+passará os próximos seis meses trabalhando com projetos
+relacionados à disciplina Física. Os estudantes trabalharam com foco em uma equipe específica da empresa, que era a responsável por criar um jogo digital sobre as Leis de Kepler.
+
+Durante os encontros, novos personagens da equipe eram revelados, com diferente experiência e formação, levando propositalmente às falhas mencionadas na seção anterior, no intuito que os estudantes refletissem e questionassem soluções.
+
+\subsection{O Framework MDA}
+
+O  Framework  MDA (de Mecânica, Dinâmica e Estética [\textit{Mechanics, Dynamics and Aesthetics}]), tem  sido amplamente  utilizado no processo de desenvolvimento e design de aplicações de jogos. Esse framework corresponde aos principais elementos  encontrados  nos  jogos. No modelo MDA os autores apresentaram uma forma diferente de perceber, analisar e projetar jogos digitais, considerando-os como produtos consumíveis, porém com uma expectativa de experiência de uso imprevisível\cite{b12}.
+
+O MDA, por sua flexibilidade, tem sido também utilizado em pesquisa e desenvolvimento\cite{b13} como dentro de contextos educacionais de ensino\cite{b14}. 
+
+ Em jogos digitais, a atividade de estudo de viabilidade e requisitos pode ser feita durante a elaboração do projeto. Ao final da fase de levantantamento de requisitos e viabilidade é confeccionado o documento de requisitos e o GDD (\textit{Game Design Document}\cite{b15}, que podem ser apresentados em um único documento ou de forma separada. 
+ 
+ Durante a disciplina o MDA foi utilizado integrado aos processos de levantamento de requisitos, assim como suporte no desenvolvimento do GDD.
+ 
+ \subsection{O GDD}
+ 
+ O GDD (\textit{Game Design Document} é utilizado para documentação no processo de desenvolvimento de jogos, o que pode incluir a etapa de requisitos e diagramas elaborados.
+ 
+ O GDD possui o intuito de facilitar o desenvolvimento do jogo, e não exige \textit{templates}\cite{b16} em sua elaboração, possibilitanto ser adaptado. 
+ Durante a disciplina, a coleção de artefatos (Seção 4) compuseram o GDD (\textit{Game Design Document} de cada grupo.
+ 
+\section{Método de Trabalho}
+
+A disciplina foi ministrada utilizando a estratégia educacional PBL, em encontros semanais de três horas com estudo dirigido e leituras entre as aulas.
+
+Além de trabalhar a partir de problemas apresentados nos estudos de casos, os estudantes eram constantemente estimulados a levantarem novos e adicionais problemas e visões, além de também trabalharem sempre como agentes ativos na solução e proposta de ferramentas.
+
+\subsection{Grupos multidisciplinares}
+
+Em um primeiro contexto, temos uma equipe de desenvolvedores de software tradicional, que geralmente é composta inteiramente por profissionais da área de Tecnologia da Informação. Uma vantagem dessa estrutura é que todos possuem uma linguagem comum e um certo entendimento do produto em que estão trabalhando. Em um segundo contexto, temos uma equipe de desenvolvedores das áreas de transformação digital, pesquisa e inovação e desenvolvimento de games, que não têm essa praticidade, por estarem em um contexto multidisciplinar, sendo necessário encontrar uma linguagem que alcance a todos os membros de modo que estes possam trabalhar em conjunto e confiar na capacidade de todos para executarem suas tarefas, para que, no final, possam unir todos os elementos em um único produto\cite{b16}.
+
+O corpo discente se enquadrava no segundo contexto, com estudantes oriundos de graduações em tecnologia da informação, estudantes com formação em linhas de design e estudantes com uma formação interdisciplinar em jogos digitais.
+
+Essa heterogeneidade de formações trouxe ao grupo grande troca de experiências, acompanhados de desafios. Por este motivo, e para garantir a heterogeneidade do grupo, durante as aulas, aqui chamadas de encontros, foram definidos dois papéis principais e sete passos a serem seguidos.
+
+
+\subsection{Papéis dos estudantes}
+Dois papéis principais, que deveriam ser ocupados por alunos diferentes a cada encontro:
+
+\textbf{Papel 1}: Coordenador da Sessão do Encontro : 
+\begin{itemize}
+\item 	Coordenar o processo de trabalho do grupo, incluindo o controle do tempo 
+\item 	Introduzir o problema para discussão 
+\item 	Facilitar a participação de todos os membros, certificando-se que os alunos exerçam o mesmo grau de participação
+\item 	Contribuir com o grupo e facilitar a discussão 
+\item 	Elaborar e estimular a discussão 
+\item 	Observar o tempo e direcionar a discussão 
+\item 	Certificar-se do cumprimento de todos os passos do PBL
+\end{itemize}
+
+\textbf{Papel 2}: Relator na Sessão do Encontro : 
+\begin{itemize}
+\item 	Prestar atenção na evolução das ideias do grupo 
+\item 	Anotar as ideias surgidas no grupo, mesmo que inicialmente pareçam irrealizáveis - princípio da metodologia tempestade de ideias
+\item 	Organizar as ideias, sintetizando-as em conceitos 
+\item 	Conferir suas anotações com os outros membros do grupo 
+\item 	Contribuir com o grupo e facilitar a discussão 
+\item 	Resumir os objetivos de aprendizagem decididos pelo grupo ao final de cada sessão tutorial 
+\end{itemize}
+
+
+\subsection{Passos dos encontros na estratégia PBL}
+Sete passos seguidos em cada encontro.
+
+\textbf{Passo 1}: Esclarecimento de termos e expressões no texto do problema - Todos os termos desconhecidos e aqueles que permanecerem sem definição satisfatória ao serem discutidos no grupo serão objeto de estudo, devendo ser esclarecidos pelos estudantes na próxima sessão. 
+
+\textbf{Passo 2}: Definição do problema - Compreender o foco do problema, sintetizando seus principais aspectos, sua essência. 
+
+\textbf{Passo 3}: Análise do problema (tempestade de ideias) - A discussão deverá ser encaminhada para delimitação das questões, procurando-se explicações baseadas nos conhecimentos prévios que os próprios estudantes trazem consigo. 
+
+\textbf{Passo 4}: Sistematização das explicações com a proposição de hipóteses - Na sequência, os estudantes proporão justificativas plausíveis para explicar as questões previamente levantadas pelo problema como um todo. 
+
+\textbf{Passo 5}: Proposição dos objetivos de aprendizagem - Os estudantes deverão propor quais os objetivos de aprendizagem que validem as hipóteses construídas, ou seja, o que eles devem aprender para resolver o problema. 
+
+\textbf{Passo 6}: Estudo individual - O estudante deve identificar as atividades necessárias para resolução do problema, atingir os objetivos de aprendizagem e proceder à sua autoaprendizagem. Individualmente, entre uma sessão de tutoria e outra, os estudantes deverão estudar os termos desconhecidos do texto, responder aos objetivos levantados na sessão de abertura e demais assuntos que faltaram para completar a análise do problema. Sistematizando seus estudos da forma que julgar mais apropriada.
+
+\textbf{Passo 7}: Fechamento do problema - Após o estudo, ocorre o segundo encontro tutorial. Os estudantes deverão estar aptos a contribuir com a resolução do problema. Devem confrontar os resultados de seus estudos com a produção dos outros colegas e refletir sobre suas próprias hipóteses formuladas durante o autoaprendizado. Com base nas ideias sistematizadas na sessão anterior e na atual devem surgir as soluções para o problema proposto.
+
+\section{Artefatos e entregas}
+
+Durante o semestre, cada grupo trabalhou em seu projeto de maneira incremental adentrando os conceitos de modelagem de software alinhado às perspectivas do MDA. Para tanto, um documento designado como GDD (\textit{Game Design Document} foi sendo elaborado semana a semana através de artefatos construídos a cada encontro como veremos a seguir.
+
+
+\subsection{Diagrama de Requisitos funcionais e não funcionais}
+
+Diferente de um software incremental, que é desenvolvido em etapas que podem ou não ser distribuídas como versões, em um jogo de maneira geral a distribuição só é feita ao término do projeto. A engenharia de requisitos é um ramo da engenharia de software que se preocupa com os objetivos, funções e restrições que os sistemas de software devem atender\cite{b18},\cite{b19}. 
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/exemplo-requisitos.png}
+    \caption{Exemplo de quadro de requisitos desenvolvido por estudante.}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{Elucidação de Requisitos e entrevistas}
+
+Após o levantamento dos requisitos vistos na seção anterior, a elucidação destes foi trabalhada através de entrevistas. Além disso, dentro do estudo de caso, a própria equipe fictícia tinha problemas de processo, liderança e comunicação, que também foram debatidos entre os estudantes.
+
+Após a entrevista um protótipo de baixa fidelidade foi desenvolvido e apresentado ao cliente a fim de elucidar questões.
+
+\subsection{Entrevistas}
+
+Nesta etapa, cada grupo deveria criar um formulário que os ajudasse a entender melhor o problema proposto - o ensino das Leis de Kepler - assim como as necessidades e expectativas do cliente em relação ao produto final.
+Em seguida a entrevista foi simulada com os integrantes do outro grupo atuando como os clientes e vice versa.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imagens/exemplo-entrevista.png}
+    \caption{Exemplo de questionário de entrevista desenvolvido por estudante.}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{Protótipo de baixa fidelidade}
+
+Durante o encontro os estudantes levantaram duas ferramentas de prototipagem para jogos que permitem testar e iterar em tempo real, sendo uma delas o Machinations\footnote{https://machinations.io} e a outra o Twine \footnote{https://twinery.org}. A primeira opção é ideal para jogos mecânicos onde existem dinâmicas com recursos\cite{b12} enquanto a segunda opção é mais adequada para jogos de narrativas interativa não lineares\cite{b17}. Todos optaram pelo Machinations por ser adequado à proposta de jogo que estava sendo elaborada, com narrativas simples e lineares e níveis variados de recursos e processos. Outra vantagem que ambas as ferramentas oferecem é de trabalhar em modo colaborativo online de modo que todos possam contribuir remotamente e avaliar o progresso.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/exemplo-machinations.png}
+    \caption{Exemplo de protótipo utilizando Machinations desenvolvido por estudantes.}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/exemplo-prototipo-baixa.png}
+    \caption{Exemplo de protótipo de baixa fidelidade desenvolvido por estudantes.}
+    \label{fig:mesh1}
+\end{figure}
+
+
+\subsection{Conflitos e comunicação}
+
+Neste encontro foram levantados, discutidos entre os estudantes e posteriormente trabalhados no estudo individual todos os possíveis conflitos entre a proposta e os resultados apresentados até então. Foi realizada uma revisão geral em cada tópico abordado em cada encontro anterior implementando os ajustes necessários.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{imagens/exemplo-comunicao.png}
+    \caption{Exemplo de conclusão levantada por estudante após debate sobre comunicação e liderança.}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{\textit{Game Design}}
+
+Esta foi uma das primeiras etapas que não seriam contempladas em sua totalidade em um curso de engenharia de software tradicional, pois nos softwares convencionais os requisitos usualmente são projetados para facilitar tarefas do usuário, enquanto nos jogos digitais as regras existem para desafiar o jogador\cite{b16},\cite{b20}.
+
+Para tornar esse processo unificado o modelo MDA (\textit{Mechanics, Dynamics and Aesthetics} serve para garantir que as mecânicas propostas, com foco em funcionalidade, servirão para gerar dinâmicas de \textit{gameplay} compatíveis com a estética desejada, levando em consideração o público-alvo. Nos estágios iniciais de planejamento, o protótipo de baixa fidelidade tem um papel crucial para o design do jogo. Nos exemplos citados, a ferramenta Machinations facilita uma linguagem em comum para o programador e o \textit{game designer}, sendo possível explorar conceitos e balancear a dinâmica, enquanto a ferramenta Twine conecta o \textit{game designer} as disciplinas de narrativa e arte, garantindo uma visão unificada em uma equipe multidisciplinar.
+
+\subsection{Diagrama de Contexto}
+
+Em posse do \textit{Game Design Document} a próxima etapa foi de elaboração do diagrama de contexto.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagens/exemplo-diagrama-de-contexto.png}
+    \caption{Exemplo de diagrama de contexto desenvolvido por estudantes.}
+    \label{fig:mesh1}
+\end{figure}
+
+
+\subsection{Diagrama de Casos de Uso}
+
+Uma das ferramentas de modelagem de software que pode trazer grandes ganhos na fase de projeto de jogos digitais é o diagrama de casos de uso. Apesar de não comprovada relação entre aprendizado de diagrama de casos de uso e desenvolvimento de jogos\cite{b26}, a relação entre os dois mostrou-se engajadora para elucidação destes requisitos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/exemplo-diagrama-de-uso.png}
+    \caption{Exemplo de diagrama de caso de uso desenvolvido por estudantes.}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{Diagrama de Atividades}
+
+Dentre as ferramentas de modelagem, o diagrama de atividades é uma das mais utilizadas para modelagem e análise de aplicações interativas, especialmente quando há a necessidade  de integrar os métodos e técnicas propostos pelas áreas de interação humano computador e engenharia de software\cite{b27}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/exemplo-diagrama-de-atividades.png}
+    \caption{Exemplo de diagrama de atividades desenvolvido por estudantes.}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{Diagrama de Máquina de Estado}
+
+Outra ferramenta de modelagem de software é o diagrama de casos de uso. Composto geralmente por estado, evento, ação, guarda e transição. Este diagrama é de essencial construção e interpretação para contenção e correção de falhas em projetos de software\cite{b28}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagens/exemplo-diagrama-de-maquina-de-estado.png}
+    \caption{Exemplo de diagrama de máquina de estados desenvolvido por estudantes.}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{Diagrama de Classes}
+
+O diagrama mais utilizado dentro do contexto da UML \textit{(Unified Modeling Language)}, pois o mesmo é uma representação da estrutura e relações das classes do software, que servem de modelo para objetos. 
+
+Dentro do contexto de educacional, o desenvolvimento de jogos é um dos menos agressivos e práticos para o ensino de modelagem e elaboração de um diagrama de classes, mesmo em cursos tradicionais de computação\cite{b29}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/exemplo-diagrama-de-classes.png}
+    \caption{Exemplo de diagrama de classes desenvolvido por estudantes.}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{Projeto Grupo 1}
+
+O grupo 1 composto por cinco estudantes, adotaram o tema de Física para apresentar um jogo educacional para o Ensino Médio, público-alvo com média de idade entre 15 a 18 anos, onde um sistema solar é proposto em que o jogador inicia com uma colônia em um dos planetas, a partir de gerenciamento de recursos e desenvolvimento da colônia é possível criar naves espaciais para enviar em missões de exploração, utilizando a gravidade dos planetas e introduzindo as dinâmicas das Leis de Kepler, com o objetivo de expandir a influência do jogador. Novos planetas oferecem recursos e desafios escalando a dificuldade naturalmente. Diferente da realidade o jogo permite erros durante a etapa de exploração para que o jogador interaja e compreenda através da experimentação. As imagens a seguir representam o \textit{mock-up} elaborado durante o processo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/grupo1-img1.png}
+    \caption{Tela de entrada do jogo Age of Kepler.}
+    \label{fig:mesh1}
+\end{figure}
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/grupo1-img2.png}
+    \caption{Tela de recursos.}
+    \label{fig:mesh1}
+\end{figure}
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/grupo1-img3.png}
+    \caption{Tela de missão.}
+    \label{fig:mesh1}
+\end{figure}
+
+\subsection{Projeto Grupo 2}
+
+O grupo 2 composto por quatro estudantes, adotaram o tema de Física para apresentar um jogo educacional para o Ensino Fundamental, público-alvo com média de idade entre 9 a 15 anos. A interface segue os moldes de jogos como “Angry Birds” e “Gorilla”. O jogador deve impulsionar o planeta com direção e força de modo a que este faça um número de revoluções ao redor da estrela sem sair da órbita definida. Além de conseguir cumprir o objetivo proposto em cada fase, o jogo pontua de acordo com: o tempo decorrido; o “ajuste” da órbita do planeta à órbita ótima. As imagens a seguir representam o \textit{mock-up} elaborado durante o processo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/grupo2-img1.png}
+    \caption{Tela de entrada do jogo Kepler o doido varrido.}
+    \label{fig:mesh1}
+\end{figure}
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/grupo2-img2.png}
+    \caption{Tela do jogo mostrando funcionamento dos controles}
+    \label{fig:mesh1}
+\end{figure}
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/grupo2-img3.png}
+    \caption{Tela do jogo mostrando o objetivo conquistado.}
+    \label{fig:mesh1}
+\end{figure}
+
+\section{Resultados Finais Obtidos e Discussão}
+
+O uso de metodologias ativas tem apresentado excelentes resultados quando aplicadas ao ensino de engenharia de software, os estudantes acabam por atingir experiências que só poderiam ser vivenciadas ao ingressar no mercado de trabalho\cite{b21}.
+
+Durante a disciplina apresentaram-se os conceitos abordados, o estudo de caso trabalhado, o método de trabalho com papéis e passos dos encontros. Além disso, alguns exemplos dos resultados obtidos como diagramas, protótipos e análises que compuseram o GDD (\textit{Game Design Document} construído por cada grupo através dos encontros e uma discussão acerca das competências desenvolvidas ao final da disciplina.
+
+As metodologias possibilitam o protagonismo do estudante, com isto, um dos resultados do trabalho foi o levantamento de uma hipótese para avaliação de jogos através de métodos de engenharia aliados aos conceitos de \textit{game design}.
+
+No decorrer dos encontros um dos tópicos estudados foi a questão do \textit{level design}. Para Byrne (2005, p.6) o termo é originário do RPG (\textit{Role-playing Game} e antigas máquinas de \textit{Arcade} sendo definido como o mapa, missão ou nível composto de eventos com incrementos de dificuldade que suceder-se-ão no jogo durante a partida\cite{b22}.
+
+Nessa etapa, são constituídos os elementos da metodologia MDA e o \textit{game designer} pode valer-se do método na construção desse mundo, nesse quesito o desenvolvimento dos jogos digitais tem se pautado em novas mecânicas, jogabilidade e narrativas que torna a experiência do usuário mais imersiva, interativa e com uma melhor assimilação das regras estabelecidas na composição do jogo.
+  
+Para Braga (2018), esses elementos "[...] espaço, seus limites e as mecânicas que são executadas no seu interior dão forma ao \textit{Level} do jogo". E ainda, o jogador realiza essa ação dentro do jogo com o intuito de atingir um resultado específico e desejado\cite{b25}.
+  
+Tratando-se da construção do \textit{level design}, temos os artigos de Dan Taylor\footnote{https://www.gamasutra.com/blogs/author/DanTaylor/543613/}, onde ele apresenta os dez princípios para composição de um bom \textit{level design}.
+
+Conforme abordado no processo de modelagem MDA, temos as perspectivas do ponto de vista do designer e do ponto de vista do jogador, e se faz necessário analisar as perspectivas desses dois elementos para o melhor desenvolvimento do jogo, nesse caso o \textit{level design}\cite{b23}.
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/conclusao-1.png}
+    \caption{Designer e jogador diferentes perspectivas. Fonte:\cite{b23}}
+    \label{fig:mesh1}
+\end{figure}
+
+Nesse contexto, podemos acrescentar uma nova perspectiva de um terceiro elemento, o ponto de vista do departamento de Garantia de Qualidade  (\textit{Quality Assurance} – QA). Segundo Chandler (2012), a principal responsabilidade do departamento de QA é criar o plano de testes para o jogo e validação do mesmo. A função primordial do QA é executar o \textit{playtest} do jogo e dar feedback aos desenvolvedores e verificar possíveis \textit{bugs} durante o processo de análise\cite{b24}.
+
+O QA consegue avaliar e apontar as necessidades relevantes para melhoria no desenvolvimento do projeto de uma forma técnica concomitantemente com o olhar subjetivo de um jogador, e nisso, temos o refinamento do sistema antes da produção do jogo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/conclusao-2.png}
+    \caption{Perpesctiva do QA Fonte: Modificado\cite{b23}}
+    \label{fig:mesh1}
+\end{figure}
+
+Diante ao exposto, a proposição é a elaboração de uma matriz ponderada como  ferramenta de apoio na análise de cada \textit{level design}, com a finalidade de se ter um parâmetro norteador na melhoria continuada no  desenvolvimento do jogo.
+ 
+Para elaboração dessa matriz, utilizamos o programa em Excel, na qual de forma estruturada quantificamos as variáveis qualitativas de multicritérios do jogo. A  concepção da planilha foi realizada a saber:
+
+Na primeira matriz "desenvolvimento do jogo", elencamos nas linhas os elementos dos jogos, divididos em três áreas (\textbf{Mecânicas, Dinâmicas, Componentes}. 
+
+As colunas foram dispostas em:
+
+\textbf{Peso}
+Através do sistema de  pesos definido pelos pares a partir do critério de importância, os valores são 0, 1, 3 ou 5  a ser atribuído a cada um dos itens da respectiva linha. 
+
+\textbf{Fase}
+São as fases do jogo propriamente ditas, onde serão atribuídas as notas em escala numérica de 1 a 7.
+
+\textbf{Pontuação máxima}
+São os valores de pontuação máxima para aquele item a um determinado peso e nota.
+
+Para a segunda matriz "princípios bom \textit{level design}" foram elencados nas linhas os dez princípios de um bom level design  e em cada coluna foram dispostos os itens (Peso, Fase, Pontuação máxima) da mesma forma supracitada.
+
+Como forma de contextualizar o processo, distribuímos os pesos aos itens elencados nos elementos dos jogos (\textbf{Mecânicas, Dinâmicas, Componentes} matriz da Fig.19 e  solicitamos ao time de QA atribuir nota mínima 1 até a nota máxima 7 para esses itens. E na matriz Fig.20, com base nos princípios do bom level design, solicitamos o mesmo procedimento. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/resultado-DMC.jpeg}
+    \caption{Matriz desenvolvimento jogo (MDC)}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/conclusao-4.png}
+    \caption{Matriz Principios bom \textit{level} design (PGLD)}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/conclusao-5.png}
+    \caption{Escala numérica Valores de peso dos critérios e nota de avaliação}
+    \label{fig:mesh1}
+\end{figure}
+
+Com as notas atribuídas conseguimos classificar e visualmente verificar cada quesito das matrizes para cada fase. Com os critérios avaliados, foi gerado um gráfico e determinamos em  qual faixa aquele \textit{level} se encontra, categorizado entre zona baixa, zona intermediária e zona ótima. Assim, pode-se visualizar e auxiliar na tomada de decisão os pontos a serem melhorados. Outra forma de utilização desta ferramenta, é a tomada de decisão para a escolha entre protótipos de alta fidelidade.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagens/conclusao-6.png}
+    \caption{Desenvolvimento Game x Principios GLD}
+    \label{fig:mesh1}
+\end{figure}
+
+\section{Conclusão}
+
+No ensino tradicional de engenharia de software, em geral, existe uma colaboração estrita e com o foco em competências técnicas, os resultados obtidos não seriam possíveis, dada a colaboração unilateral e estrita da relação aluno-professor. 
+
+Com uma abordagem construída com metodologias ativas, todo o conteúdo foi contemplado e, dada a construção da turma multidisciplinar e observação dos resultados obtidos, concluímos o potencial de se alcançar além da multidisciplinaridade, a transdisciplinaridade, no momento em que vemos elementos de engenharia de qualidade trabalharem em composição com engenharia de software e \textit{game design}. 
+
+Ainda neste quesito, o PBL (\textit{Problem Based Learning} se mostra a ferramenta ideal para a preparação dos alunos ao mercado, treinando competências extrínsecas ao ensino puramente das ferramentas de modelagem de software.
+
+Com o emprego das metodologias ativas consegue-se um maior engajamento dos alunos com uma melhor experiência para o desenvolvimento e capacitação profissional. 
+
+Dessa forma, temos um ensino-aprendizagem que atenda às demandas do mercado, promovendo a aprendizagem de forma colaborativa, reflexiva, por meio de descobertas e soluções. 
+
+%\bibliographystyle{apalike}
+\bibliographystyle{abbrv}
+\bibliography{references}
+\end{document}
+
